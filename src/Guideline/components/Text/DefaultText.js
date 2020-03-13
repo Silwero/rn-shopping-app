@@ -2,8 +2,13 @@ import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
-const DefaultText = ({ children }) => {
-  return <Text style={styles.text}>{children}</Text>;
+const DefaultText = ({ children, italic, bold, style }) => {
+  return <Text style={{
+    ...styles.text,
+    ...(italic ? styles.fontItalic : {}),
+    ...(bold ? styles.fontBold : {}),
+    ...style,
+    }}>{children}</Text>;
 };
 
 const styles = StyleSheet.create({
@@ -20,6 +25,9 @@ const styles = StyleSheet.create({
 
 DefaultText.propTypes = {
   children: PropTypes.node.isRequired,
+  italic: PropTypes.bool,
+  bold: PropTypes.bool,
+  style: PropTypes.object,
 };
 
 export default DefaultText;

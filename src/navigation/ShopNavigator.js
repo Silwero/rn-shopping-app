@@ -9,7 +9,11 @@ const ShopNavigator = createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-      headerTintColor: theme.colors.text.secondary,
+      headerTitleStyle: {
+        color: theme.colors.text.secondary,
+        fontFamily: 'open-sans',
+        fontSize: 24,
+      },
       headerStyle: {
         backgroundColor: theme.colors.backgroundColor.secondary,
       },
